@@ -110,3 +110,30 @@ vi /mydata/mysql/conf/my.cnf
 docker restart mysql
 ```
 
+### 安装Redis
+
+------
+
+```shell
+# 下载redis镜像
+docker pull redis
+
+#创建redis配置目录和文件
+mkdir -p /mydata/redis/conf
+touch /mydata/redis/conf/redis.conf
+
+#运行redis
+docker run -p 6379:6379 --name redis -v /mydata/redis/data:/data \
+-v/mydata/redis/conf/redis.conf:/etc/redis/redis.conf \
+-d redis redis-server /etc/redis/redis.conf
+
+# 使用redis镜像执行redis-cli命令连接
+docker exec -it redis redis-cli
+
+# 配置redis持久化
+vi /mydata/redis/conf/redis.conf
+# 插入
+appendonly yes
+```
+
+官方配置文档：`https://redis.io/topics/config`
