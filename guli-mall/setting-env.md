@@ -134,6 +134,9 @@ docker exec -it redis redis-cli
 vi /mydata/redis/conf/redis.conf
 # 插入
 appendonly yes
+
+#设置开机自动运行
+sudo docker update redis --restart=always
 ```
 
 官方配置文档：`https://redis.io/topics/config`
