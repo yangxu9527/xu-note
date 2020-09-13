@@ -8,6 +8,8 @@
 
   `github`地址：`https://github.com/alibaba/nacos`
 
+  spring boot与spring cloud版本对应：`https://start.spring.io/actuator/info`
+
 - **引入依赖**
 
   ```xml
@@ -91,5 +93,47 @@
   spring.application.name=gulimall-coupon
   ```
 
-- 
+- **配置自动更新**
+
+  通过 Spring Cloud 原生注解 `@RefreshScope` 实现配置自动更新：
+
+  ```java
+  @RestController
+  @RequestMapping("/config")
+  @RefreshScope
+  public class ConfigController {
+  
+      @Value("${useLocalCache:false}")
+      private boolean useLocalCache;
+  
+      @RequestMapping("/get")
+      public boolean get() {
+          return useLocalCache;
+      }
+  }
+  ```
+  
+- **命名空间**
+
+  配置环境隔离。
+
+  ```properties
+  spring.cloud.nacos.config.namespace=b3404bc0-d7dc-4855-b519-570ed34b62d7
+  ```
+
+- **配置分组**
+
+  在创建配置时手动输入配置分组。
+
+  ```properties
+  spring.cloud.nacos.config.group=DEVELOP_GROUP
+  ```
+
+- **总结**
+
+  1.所有配置都可以放入配置中心中，只需要在bootstrap.properties中指明从哪获取配置即可
+
+  2.配置优先从配置中心中获取，如果配置中心没有则从本地获取。
+
+  
 
