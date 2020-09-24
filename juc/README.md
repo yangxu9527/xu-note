@@ -1,8 +1,8 @@
-- `CAS`
+#### 常用工具
 
-  什么是`CAS`？怎么解决`ABA`问题？
+- `	JUC`并发压力测试工具：https://wiki.openjdk.java.net/display/CodeTools/jcstress
 
-  `lock cmpxchg` 指令
+- `JUC`并发性能测试工具：http://openjdk.java.net/projects/code-tools/jmh/
 
 - 对象的内存布局
 
@@ -20,5 +20,14 @@
   ClassLayout.parseInstance(obj).toPrintable()
   ```
   
-  新建一个Object对象占用多少个字节？
+
+- `idea`查看`java`字节码插件：`jclass`
+
+- `idea`查看`java`字节码插件：`asm bycode outline`
+
+
+
+------
+
+
 
