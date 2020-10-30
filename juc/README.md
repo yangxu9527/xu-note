@@ -20,14 +20,13 @@
   ClassLayout.parseInstance(obj).toPrintable()
   ```
   
-
 - `idea`查看`java`字节码插件：`jclass`
 
 - `idea`查看`java`字节码插件：`asm bycode outline`
 
-
-
 ------
+
+
 
 
 
